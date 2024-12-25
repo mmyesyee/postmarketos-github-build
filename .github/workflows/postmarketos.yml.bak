@@ -20,9 +20,9 @@ jobs:
        
       - name: install pmbootstrap
         run: | 
-          sudo apt-get update
-          sudo apt-get install git kpartx python3 python3-tomli
-          mkdir -p $GITHUB_WORKSPACE/workdir
+        sudo apt-get update
+        sudo apt-get install git kpartx python3 python3-tomli
+         mkdir -p $GITHUB_WORKSPACE/workdir
           cd $GITHUB_WORKSPACE/workdir
           git clone https://gitlab.postmarketos.org/postmarketOS/pmbootstrap.git
           cd pmbootstrap
@@ -30,6 +30,6 @@ jobs:
           ln -s "$PWD/pmbootstrap.py" ~/.local/bin/pmbootstrap
           PATH="$HOME/.local/bin:$PATH"
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
-          pmbootstrap --version
+      pmbootstrap --version
           
           
