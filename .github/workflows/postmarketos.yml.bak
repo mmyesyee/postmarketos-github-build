@@ -9,8 +9,8 @@ on:
     runs-on: ubuntu-latest
     steps:
      - name: Get branch names.
-         id: branch-names
-         uses: tj-actions/branch-names@v8
+        id: branch-names
+        uses: tj-actions/branch-names@v8
 
       - name: Set SWAP to 5GiB
         uses: pierotofy/set-swap-space@master
