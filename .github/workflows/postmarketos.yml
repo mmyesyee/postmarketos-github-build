@@ -39,7 +39,7 @@ jobs:
            pmbootstrap config is_default_channel False
            pmbootstrap config ui xfce4
            pmbootstrap config user mmyes
-       -name: git postmarketos-oppo-r11
+       - name: git postmarketos-oppo-r11
          run: |
            cd
            git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
