@@ -58,6 +58,7 @@ jobs:
         run: |
           pmbootstrap build linux-oppo-r11
       - name: log
+        if: ${{ failure() }}
         run: |
           cat ~/.local/var/pmbootstrap/log.txt
     
