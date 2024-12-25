@@ -20,9 +20,9 @@ jobs:
        
       - name: install pmbootstrap
         run: | 
-        sudo apt-get update
-        sudo apt-get install git kpartx python3 python3-tomli
-         mkdir -p $GITHUB_WORKSPACE/workdir
+          sudo apt-get update
+          sudo apt-get install git kpartx python3 python3-tomli
+          mkdir -p $GITHUB_WORKSPACE/workdir
           cd $GITHUB_WORKSPACE/workdir
           git clone https://gitlab.postmarketos.org/postmarketOS/pmbootstrap.git
           cd pmbootstrap
@@ -30,6 +30,18 @@ jobs:
           ln -s "$PWD/pmbootstrap.py" ~/.local/bin/pmbootstrap
           PATH="$HOME/.local/bin:$PATH"
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
-      pmbootstrap --version
-          
-          
+          pmbootstrap --version
+       - name: config pmbootstrap
+         run: |
+           pmbootstrap config device oppo-r11
+           pmbootstrap config extra_packages nano
+           pmbootstrap config is_default_channel False
+           pmbootstrap config ui xfce4
+           pmbootstrap config user mmyes
+       -name: git postmarketos-oppo-r11
+         run: |
+           cd
+           git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
+           cd postmarketos-oppo-r11
+           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/
+         
