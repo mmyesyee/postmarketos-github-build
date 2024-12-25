@@ -8,7 +8,6 @@ jobs:
     name:  Build OPPO R11 postmarketos by ${{ github.actor }}
     runs-on: ubuntu-latest
     steps:
-    
       - name: Get branch names.
         id: branch-names
         uses: tj-actions/branch-names@v8
