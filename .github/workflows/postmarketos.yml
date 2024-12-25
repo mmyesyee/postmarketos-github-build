@@ -1,0 +1,34 @@
+name: Build OPPO R11 postmarketos
+on:
+  workflow_call:
+  workflow_dispatch:
+  
+  jobs:
+  build:
+    name:  Build OPPO R11 postmarketos by ${{ github.actor }}
+    runs-on: ubuntu-latest
+    steps:
+     - name: Get branch names.
+        id: branch-names
+        uses: tj-actions/branch-names@v8
+
+      - name: Set SWAP to 5GiB
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 5
+       
+      - name: install pmbootstrap
+      run= |
+      sudo apt-get update
+      sudo apt-get install git kpartx python3 python3-tomli
+      mkdir -p $GITHUB_WORKSPACE/workdir
+          cd $GITHUB_WORKSPACE/workdir
+          git clone https://gitlab.postmarketos.org/postmarketOS/pmbootstrap.git
+          cd pmbootstrap
+          mkdir -p ~/.local/bin
+          ln -s "$PWD/pmbootstrap.py" ~/.local/bin/pmbootstrap
+          PATH="$HOME/.local/bin:$PATH"
+          echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
+      pmbootstrap --version
+          
+          
