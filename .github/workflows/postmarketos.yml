@@ -57,3 +57,7 @@ jobs:
       - name: build postmarketos
         run: |
           pmbootstrap build linux-oppo-r11
+      - name: log
+        run: |
+          cat ~/.local/var/pmbootstrap/log.txt
+    
