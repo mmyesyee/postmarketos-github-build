@@ -55,4 +55,4 @@ jobs:
       
       - name: build postmarketos
         run: |
-        pmbootstrap build linux-oppo-r11
+          pmbootstrap build linux-oppo-r11
