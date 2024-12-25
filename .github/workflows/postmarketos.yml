@@ -8,6 +8,7 @@ jobs:
     name:  Build OPPO R11 postmarketos by ${{ github.actor }}
     runs-on: ubuntu-latest
     steps:
+    
       - name: Get branch names.
         id: branch-names
         uses: tj-actions/branch-names@v8
@@ -30,18 +31,20 @@ jobs:
           PATH="$HOME/.local/bin:$PATH"
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
           pmbootstrap --version
-       - name: config pmbootstrap
-         run: |
-           yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
-           pmbootstrap config device oppo-r11
-           pmbootstrap config extra_packages nano
-           pmbootstrap config is_default_channel False
-           pmbootstrap config ui xfce4
-           pmbootstrap config user mmyes
-       - name: git postmarketos-oppo-r11
-         run: |
-           cd
-           git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
-           cd postmarketos-oppo-r11
-           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
-           yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
+          
+      - name: config pmbootstrap
+        run: |
+          yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
+          pmbootstrap config device oppo-r11
+          pmbootstrap config extra_packages nano
+          pmbootstrap config is_default_channel False
+          pmbootstrap config ui xfce4
+          pmbootstrap config user mmyes
+           
+      - name: git postmarketos-oppo-r11
+        run: |
+          cd
+          git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
+          cd postmarketos-oppo-r11
+          cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
+          yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
