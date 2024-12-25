@@ -52,7 +52,9 @@ jobs:
       - name: Get proton-clang13 toolchain
         run: |
           pmbootstrap chroot -- apk add git
-          pmbootstrap chroot -- git clone https://github.com/kdrag0n/proton-clang.git -b 20210522 --depth 1 /home/pmos/clang
+          pmbootstrap chroot -- wget https://github.com/ZyCromerZ/Clang/releases/download/20.0.0git-20241109-release/Clang-20.0.0git-20241109.tar.gz -O /home/pmos/zyc_clang20.tar.gz
+          mkdir /home/pmos/clang
+          tar zxvf /home/pmos/zyc_clang20.tar.gz -C /home/pmos/clang
           pmbootstrap chroot -- export PATH="/home/pmos/clang/bin:$PATH"
           
 
