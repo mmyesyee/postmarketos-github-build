@@ -47,4 +47,12 @@ jobs:
           git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
           cd postmarketos-oppo-r11
           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
-          yes '' | pmbootstrap.py --details-to-stdout init
+          yes '' | pmbootstrap --details-to-stdout init
+      
+      - name: Get proton-clang13 toolchain
+        run: |
+          pmbootstrap chroot -- git clone https://github.com/kdrag0n/proton-clang.git -b 20210522 --depth 1 /home/pmos/clang
+      
+      - name: build postmarketos
+        run: |
+        pmbootstrap build linux-oppo-r11
