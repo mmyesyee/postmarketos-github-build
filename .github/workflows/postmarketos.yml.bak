@@ -34,7 +34,7 @@ jobs:
           
       - name: config pmbootstrap
         run: |
-          yes '' | pmbootstrap --details-to-stdout init
+          yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
           pmbootstrap config device oppo-r11
           pmbootstrap config extra_packages nano
           pmbootstrap config is_default_channel False
@@ -47,4 +47,4 @@ jobs:
           git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
           cd postmarketos-oppo-r11
           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
-          yes '' | pmbootstrap.py --details-to-stdout init
+          yes '' | ./pmbootstrap/pmbootstrap.py --details-to-stdout init
