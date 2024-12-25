@@ -8,9 +8,9 @@ on:
     name:  Build OPPO R11 postmarketos by ${{ github.actor }}
     runs-on: ubuntu-latest
     steps:
-     - name: Get branch names.
-         id: branch-names
-         uses: tj-actions/branch-names@v8
+      - name: Get branch names.
+        id: branch-names
+        uses: tj-actions/branch-names@v8
 
       - name: Set SWAP to 5GiB
         uses: pierotofy/set-swap-space@master
@@ -18,7 +18,7 @@ on:
           swap-size-gb: 5
        
       - name: install pmbootstrap
-      run= |
+    run: | 
       sudo apt-get update
       sudo apt-get install git kpartx python3 python3-tomli
       mkdir -p $GITHUB_WORKSPACE/workdir
