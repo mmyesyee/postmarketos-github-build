@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
   jobs:
-  build:
+   build:
     name:  Build OPPO R11 postmarketos by ${{ github.actor }}
     runs-on: ubuntu-latest
     steps:
