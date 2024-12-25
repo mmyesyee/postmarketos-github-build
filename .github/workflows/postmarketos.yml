@@ -53,8 +53,8 @@ jobs:
         run: |
           pmbootstrap chroot -- apk add git
           pmbootstrap chroot -- git clone https://github.com/kdrag0n/proton-clang.git -b 20210522 --depth 1 /home/pmos/clang
-          pmbootstrap chroot -- export PATH="/home/pmos/clang/bin:$PATH"
-          pmbootstrap chroot -- clang
+          pmbootstrap chroot -- export PATH="/home/pmos/clang/bin:$PATH" | clang
+          
 
 
       - name: build postmarketos
