@@ -49,27 +49,6 @@ jobs:
           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
           yes '' | pmbootstrap --details-to-stdout init
       
-      - name: install clang
-        run: |
-          pmbootstrap chroot -- apk add git
-          pmbootstrap chroot -- wget https://github.com/ZyCromerZ/Clang/releases/download/20.0.0git-20241109-release/Clang-20.0.0git-20241109.tar.gz -O /home/pmos/zyc_clang20.tar.gz
-          pmbootstrap chroot -- mkdir /clang
-          pmbootstrap chroot -- tar zxvf /home/pmos/zyc_clang20.tar.gz -C /clang
-          pmbootstrap chroot -- ls -l /clang/bin
-          pmbootstrap chroot -- apk --no-cache add ca-certificates wget
-          pmbootstrap chroot -- wget -q -O /etc/apk/keys/zalgonoise@gmail.com-61ca4660.rsa.pub https://raw.githubusercontent.com/ZalgoNoise/alpine-gcc10-package/master/zalgonoise%40gmail.com-61ca4660.rsa.pub
-          pmbootstrap chroot -- wget https://github.com/ZalgoNoise/gcc10-alpine-package/releases/download/gcc-10.3.1/linux_x86-64_gcc-10.3.1_git20210625-r0.apk 
-          pmbootstrap chroot -- wget https://github.com/ZalgoNoise/gcc10-alpine-package/releases/download/gcc-10.3.1/linux_x86-64_libgomp-10.3.1_git20210625-r0.apk 
-          pmbootstrap chroot -- wget https://github.com/ZalgoNoise/gcc10-alpine-package/releases/download/gcc-10.3.1/linux_x86-64_libatomic-10.3.1_git20210625-r0.apk 
-          pmbootstrap chroot -- wget https://github.com/ZalgoNoise/gcc10-alpine-package/releases/download/gcc-10.3.1/linux_x86-64_libgphobos-10.3.1_git20210625-r0.apk 
-          pmbootstrap chroot -- apk add \
-            linux_x86-64_gcc-10.3.1_git20210625-r0.apk \
-            linux_x86-64_libgomp-10.3.1_git20210625-r0.apk \
-            linux_x86-64_libatomic-10.3.1_git20210625-r0.apk \
-            linux_x86-64_libgphobos-10.3.1_git20210625-r0.apk 
-    
-          
-
 
       - name: build postmarketos
         run: |
