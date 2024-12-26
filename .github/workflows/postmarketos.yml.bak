@@ -55,7 +55,7 @@ jobs:
           pmbootstrap chroot -- wget https://github.com/ZyCromerZ/Clang/releases/download/20.0.0git-20241109-release/Clang-20.0.0git-20241109.tar.gz -O /home/pmos/zyc_clang20.tar.gz
           pmbootstrap chroot -- mkdir /clang
           pmbootstrap chroot -- tar zxvf /home/pmos/zyc_clang20.tar.gz -C /clang
-          pmbootstrap chroot -- export PATH="/home/pmos/clang/bin:$PATH"|clang --version
+          pmbootstrap chroot -- ls -l /clang/bin
           
 
 
