@@ -53,7 +53,7 @@ jobs:
       - name: build postmarketos
         run: |
           pmbootstrap checksum linux-oppo-r11
-          pmbootstrap build linux-oppo-r11
+          pmbootstrap build linux-xiaomi-lavender
       - name: log
         if: ${{ failure() }}
         run: |
