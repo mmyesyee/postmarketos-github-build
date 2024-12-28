@@ -54,6 +54,10 @@ jobs:
         run: |
           pmbootstrap checksum linux-oppo-r11
           pmbootstrap build linux-oppo-r11 --force
+          pmbootstrap checksum device-oppo-r11
+          pmbootstrap build device-oppo-r11
+          pmbootstrap install --android-recovery-zip
+          
       - name: log
         if: ${{ failure() }}
         run: |
