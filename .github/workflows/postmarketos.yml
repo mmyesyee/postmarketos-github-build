@@ -44,7 +44,7 @@ jobs:
       - name: git postmarketos-oppo-r11
         run: |
           cd
-          git clone https://github.com/mmyes1145/postmarketos-oppo-r11.git
+          git clone https://github.com/mmyesyee/postmarketos-oppo-r11.git
           cd postmarketos-oppo-r11
           cp -r *-oppo-r11 ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/
           yes '' | pmbootstrap --details-to-stdout init
